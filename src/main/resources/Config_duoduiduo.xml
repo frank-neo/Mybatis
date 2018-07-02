@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias alias="User" type="com.demo.mybatislearn.duoduiduo.Bean.User" />
+        <typeAlias alias="UserGroup" type="com.demo.mybatislearn.duoduiduo.Bean.UserGroup" />
+        <typeAlias alias="Group" type="com.demo.mybatislearn.duoduiduo.Bean.Group" />
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://127.0.0.1:3306/lishaoxiong?serverTimezone=Hongkong&amp; useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false" />
+                <property name="username" value="lishaoxiong" />
+                <property name="password" value="lsx8399LSX" />
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="com/demo/mybatislearn/duoduiduo/bean/User.xml" />
+        <mapper resource="com/demo/mybatislearn/duoduiduo/bean/GroupMaper.xml" />
+        <mapper resource="com/demo/mybatislearn/duoduiduo/bean/UserGroupMaper.xml" />
+    </mappers>
+</configuration>
