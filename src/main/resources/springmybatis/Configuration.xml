@@ -10,13 +10,33 @@
             http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd"
        default-autowire="byName" default-lazy-init="false">
 
+
+    <!-- 引入dbconfig.properties属性文件 -->
+    <context:property-placeholder location="classpath:springmybatis/jdbc.properties" />
+
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
-        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-        <property name="url"
-                  value="jdbc:mysql://127.0.0.1:3306/lishaoxiong?serverTimezone=Hongkong&amp;useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false" />
-        <property name="username" value="lishaoxiong" />
-        <property name="password" value="lsx8399LSX" />
+        <property name="driverClassName">
+            <value>${jdbc.driverClassName}</value>
+        </property>
+        <property name="url">
+            <value>${jdbc.url}</value>
+        </property>
+        <property name="username" >
+            <value>${jdbc.username}</value>
+        </property>
+        <property name="password" >
+            <value>${jdbc.password}</value>
+        </property>
     </bean>
+
+
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">-->
+        <!--<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />-->
+        <!--<property name="url"-->
+                  <!--value="jdbc:mysql://127.0.0.1:3306/lishaoxiong?serverTimezone=Hongkong&amp;useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false" />-->
+        <!--<property name="username" value="lishaoxiong" />-->
+        <!--<property name="password" value="lsx8399LSX" />-->
+    <!--</bean>-->
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!--dataSource属性指定要用到的连接池-->
